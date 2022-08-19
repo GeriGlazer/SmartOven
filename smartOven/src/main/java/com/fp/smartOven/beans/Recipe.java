@@ -12,7 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Recipe implements Serializable {
     private int id;
-    private   String name;
+    private String name;
     private double cookTime;
     private int sprayNozzleInterval;
     private double internalMeatTemperature;
