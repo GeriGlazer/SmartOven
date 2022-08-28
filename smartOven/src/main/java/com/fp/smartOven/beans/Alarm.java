@@ -8,5 +8,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Alarm {
     public boolean isOn = false;
-
+//todo: is this Reacts action only?
 }

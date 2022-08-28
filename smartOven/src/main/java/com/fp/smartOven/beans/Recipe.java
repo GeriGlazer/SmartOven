@@ -4,14 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;
 
+@RedisHash("recipe")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Recipe implements Serializable {
-    private int id;
+    private String id;
     private String name;
     private double cookTime;
     private int sprayNozzleInterval;
@@ -23,7 +25,6 @@ public class Recipe implements Serializable {
     //set recipe
 
     public Recipe(String name, double cookTime, int sprayNozzleInterval, double internalMeatTemperature, double ambientTemperature) {
-        this.id = id++;
         this.name = name;
         setCookTime(cookTime);
         setSprayNozzleInterval(sprayNozzleInterval);

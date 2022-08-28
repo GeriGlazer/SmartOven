@@ -42,7 +42,7 @@ public class SystemRun implements CommandLineRunner {
         Light light = new Light(false);
         System.out.println("Light initialized, off");
 
-        Recipe pastrami = new Recipe("Pastrami", 6, 1, 65, 150);
+        //Recipe pastrami = new Recipe("Pastrami", 6, 1, 65, 150);
 
 
 

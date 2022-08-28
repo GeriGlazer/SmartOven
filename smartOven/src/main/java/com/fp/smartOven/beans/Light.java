@@ -8,4 +8,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Light {
     public boolean isOn = false;
+    //todo: is this Reacts action only?
 }
