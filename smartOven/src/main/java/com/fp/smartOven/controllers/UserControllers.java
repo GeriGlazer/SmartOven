@@ -4,6 +4,7 @@ import com.fp.smartOven.beans.User;
 import com.fp.smartOven.exceptions.CustomExceptions;
 import com.fp.smartOven.services.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/smartOven")
 public class UserControllers {
+    @Autowired
     private final UserService userService;
 
     @PostMapping("login")

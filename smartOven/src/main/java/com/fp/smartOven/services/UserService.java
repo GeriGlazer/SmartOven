@@ -3,12 +3,14 @@ package com.fp.smartOven.services;
 
 import com.fp.smartOven.beans.User;
 import com.fp.smartOven.exceptions.CustomExceptions;
-import com.fp.smartOven.repositories.RecipeRepo;
 import com.fp.smartOven.repositories.UserRepo;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
+@NoArgsConstructor
 public class UserService{
-
     @Autowired
     UserRepo userRepo;
 
