@@ -6,6 +6,7 @@ import com.fp.smartOven.repositories.RecipeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 @Component
@@ -19,7 +20,7 @@ public class SystemRun implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         List<Prob> probList = (List<Prob>) probRepo.findAll();
-        if(probList.isEmpty()) {
+        if (probList.isEmpty()) {
             Prob prob1 = new Prob("1", "meatProb1", 60, 100, 0, 0);
             Prob prob2 = new Prob("2", "meatProb2", 60, 100, 0, 0);
             Prob prob3 = new Prob("3", "meatProb3", 60, 100, 0, 0);
@@ -33,10 +34,10 @@ public class SystemRun implements CommandLineRunner {
             System.out.println("ambient probs saved");
 
 
-        //programed recipes
-        //Recipe pastrami = new Recipe("Pastrami", 6, 1, 65, 150);
-        //Recipe babyBackRibs
-        //Recipe lambLeg
+            //programed recipes
+            //Recipe pastrami = new Recipe("Pastrami", 6, 1, 65, 150);
+            //Recipe babyBackRibs
+            //Recipe lambLeg
         }
     }
 }

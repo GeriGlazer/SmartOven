@@ -10,26 +10,28 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/smartOven")
 public class RecipeControllers {
+
     @Autowired
-    private final RecipeService recipeService;
+    private RecipeService recipeService;
 
     @PostMapping("/newRecipe")
-    public ResponseEntity<?> newRecipe (@RequestBody Recipe recipe) throws CustomExceptions {
+    public ResponseEntity<?> newRecipe(@RequestBody Recipe recipe) throws CustomExceptions {
         recipeService.createNewRecipe(recipe);
         return ResponseEntity.ok()
                 .body(recipe);
     }
 
     @GetMapping("/getRecipe/{name}")
-    public ResponseEntity<?> getRecipe (@PathVariable String name) throws CustomExceptions {
+    public ResponseEntity<?> getRecipe(@PathVariable String name) throws CustomExceptions {
         return ResponseEntity.ok()
                 .body(recipeService.getRecipe(name));
     }
 
     @GetMapping("/getAllRecipes")
-    public ResponseEntity<?> getAllRecipes ()  {
+    public ResponseEntity<?> getAllRecipes() {
         return ResponseEntity.ok()
                 .body(recipeService.getAllRecipes());
     }
@@ -38,29 +40,29 @@ public class RecipeControllers {
     public ResponseEntity<?> update(@RequestBody Recipe recipe) throws CustomExceptions {
         recipeService.updateRecipe(recipe);
         return ResponseEntity.ok()
-               .body("Recipe deleted");
+                .body("Recipe deleted");
     }
 
     @DeleteMapping("/delete/{name}")
-    public ResponseEntity<?> deleteRecipe (@PathVariable String name) throws CustomExceptions {
+    public ResponseEntity<?> deleteRecipe(@PathVariable String name) throws CustomExceptions {
         recipeService.deleteRecipe(name);
         return ResponseEntity.ok()
                 .body("Recipe deleted");
     }
 
     //todo: I want to return the thread process, is it possible?
-    @PutMapping("/inProcess")
-    public ResponseEntity<?> recipeInProcess (@RequestBody Recipe recipe) throws CustomExceptions {
-        recipeService.startCooking(recipe);
-        return ResponseEntity.ok()
-                .body("Turning oven on and start cooking");
-    }
+//    @PutMapping("/inProcess")
+//    public ResponseEntity<?> recipeInProcess (@RequestBody Recipe recipe) throws CustomExceptions {
+//        recipeService.startCooking(recipe);
+//        return ResponseEntity.ok()
+//                .body("Turning oven on and start cooking");
+//    }
 
-    @PutMapping("/stopped")
-    public ResponseEntity<?> stopOven (){
-        recipeService.stopCooking();
-        return ResponseEntity.ok()
-                .body("Cooking stopped");
-    }
+//    @PutMapping("/stopped")
+//    public ResponseEntity<?> stopOven (){
+//        recipeService.stopCooking();
+//        return ResponseEntity.ok()
+//                .body("Cooking stopped");
+//    }
 
 }

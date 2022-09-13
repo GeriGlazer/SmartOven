@@ -17,6 +17,7 @@ import java.io.Serializable;
 public class Recipe implements Serializable {
     @Id
     @JsonIgnore
+    @Indexed
     private String id;
     @Indexed
     private String name;
@@ -25,10 +26,7 @@ public class Recipe implements Serializable {
     private double internalMeatTemperature;
     private double ambientTemperature;
 
-
-
     //set recipe
-
     public Recipe(String name, double cookTime, long sprayNozzleInterval, double internalMeatTemperature, double ambientTemperature) {
         this.name = name;
         setCookTime(cookTime);
@@ -37,14 +35,15 @@ public class Recipe implements Serializable {
         this.ambientTemperature = ambientTemperature;
     }
 
-    //set cook Time in seconds
-    private void setCookTime (double cookTime){
-        cookTime=cookTime*60*60;
-        this.cookTime=cookTime;
+    //set cook Time, exchange from hours to seconds
+    private void setCookTime(double cookTime) {
+        cookTime = cookTime * 60 * 60;
+        this.cookTime = cookTime;
     }
-    //set spray Nozzle Interval in milliseconds
+
+    //set spray Nozzle Interval exchange from minutes to milliseconds
     private void setSprayNozzleInterval(long sprayNozzleInterval) {
-        sprayNozzleInterval=sprayNozzleInterval*60000;
+        sprayNozzleInterval = sprayNozzleInterval * 60000;
         this.sprayNozzleInterval = sprayNozzleInterval;
     }
 

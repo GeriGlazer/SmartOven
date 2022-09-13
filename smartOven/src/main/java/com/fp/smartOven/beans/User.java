@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.index.Indexed;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.lang.annotation.Documented;
 
 @RedisHash("user")
 @Data
@@ -18,9 +19,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Indexed
     @JsonIgnore
-    private int id;
+    private String id;
     private String name;
     @Indexed
     private String email;

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SystemAdvice {
     @ExceptionHandler(value = {CustomExceptions.class})
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public ExceptionDetails handleException(Exception exception){
+    public ExceptionDetails handleException(Exception exception) {
         return new ExceptionDetails("error: ", exception.getMessage());
     }
 }
