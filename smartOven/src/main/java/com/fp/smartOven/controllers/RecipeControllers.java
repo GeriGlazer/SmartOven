@@ -50,19 +50,18 @@ public class RecipeControllers {
                 .body("Recipe deleted");
     }
 
-    //todo: I want to return the thread process, is it possible?
-//    @PutMapping("/inProcess")
-//    public ResponseEntity<?> recipeInProcess (@RequestBody Recipe recipe) throws CustomExceptions {
-//        recipeService.startCooking(recipe);
-//        return ResponseEntity.ok()
-//                .body("Turning oven on and start cooking");
-//    }
+    @PutMapping("/inProcess")
+    public ResponseEntity<?> recipeInProcess (@RequestBody Recipe recipe) throws CustomExceptions {
+        recipeService.startCooking(recipe);
+        return ResponseEntity.ok()
+                .body("Turning oven on and start cooking");
+    }
 
-//    @PutMapping("/stopped")
-//    public ResponseEntity<?> stopOven (){
-//        recipeService.stopCooking();
-//        return ResponseEntity.ok()
-//                .body("Cooking stopped");
-//    }
+    @PutMapping("/stopped")
+    public ResponseEntity<?> stopOven (){
+        recipeService.stopCooking();
+        return ResponseEntity.ok()
+                .body("Cooking stopped");
+    }
 
 }

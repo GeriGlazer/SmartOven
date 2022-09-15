@@ -5,6 +5,7 @@ import com.fp.smartOven.exceptions.CustomExceptions;
 import com.fp.smartOven.repositories.RecipeRepo;
 import com.fp.smartOven.thread.StartCooking;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,7 @@ public class RecipeService {
 
     @Autowired
     private RecipeRepo recipeRepo;
-//    @Autowired
-//    StartCooking cook;
+    private StartCooking start;
 
     public void createNewRecipe(Recipe recipe) throws CustomExceptions {
 //        if (recipeRepo.existByName(recipe.getName())) {
@@ -51,16 +51,15 @@ public class RecipeService {
         recipeRepo.deleteByName(name);
     }
 
-//    public void startCooking(Recipe recipe) throws CustomExceptions {
-//        if (!recipeRepo.existByName(recipe.getName())) {
-//            throw new CustomExceptions("No recipe found by this name");
-//        }
-//        //cook = new StartCooking();
-//        cook.start();
-//    }
+    public void startCooking(Recipe recipe) throws CustomExceptions {
+        if (!recipeRepo.existByName(recipe.getName())) {
+            throw new CustomExceptions("No recipe found by this name");
+        }
+        start = new StartCooking(recipe);
+        start.start();
+    }
 
-    //todo: is this ok?
-//    public void stopCooking() {
-//        cook.endTask();
-//    }
+    public void stopCooking() {
+        start.isRunning();
+    }
 }

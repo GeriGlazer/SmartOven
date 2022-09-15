@@ -33,11 +33,15 @@ public class SystemRun implements CommandLineRunner {
             probRepo.saveAll(List.of(prob5, prob6));
             System.out.println("ambient probs saved");
 
-
-            //programed recipes
-            //Recipe pastrami = new Recipe("Pastrami", 6, 1, 65, 150);
-            //Recipe babyBackRibs
-            //Recipe lambLeg
         }
+        //programed recipes
+        Recipe pastrami = new Recipe("Pastrami", 6, 1, 65, 150);
+        Recipe smokedHolidayHam = new Recipe("Smoked Holiday Ham", 8, 3,  68, 93);
+        Recipe smokedBacon = new Recipe("Smoked Bacon", 3, 1, 65, 120);
+        Recipe smokedJalapeños = new Recipe("Smoked Jalapeños", 5, 0, 32, 37);
+        Recipe turkeyBreast = new Recipe("Turkey Breast", 4, 3, 71, 93);
+        Recipe smokedSalmon = new Recipe("Smoked Salmon", 12, 0, 12, 25);
+
+        recipeRepo.saveAll(List.of(pastrami, smokedHolidayHam, smokedBacon, smokedJalapeños, turkeyBreast, smokedSalmon));
     }
 }
